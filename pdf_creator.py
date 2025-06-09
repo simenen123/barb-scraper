@@ -6,10 +6,10 @@ from reportlab.lib import colors
 import textwrap
 import chapters
 
-def create_pdf(the_raw_text):
-    fileName = 'pdfs/test.pdf'
-    documentTitle = 'test_title'
-    title = 'First_test'
+def create_pdf(the_raw_text, chapter_nr):
+    fileName = f'pdfs/chapter-{chapter_nr}.pdf'
+    documentTitle = f'chapter-{chapter_nr}'
+    title = f'chapter-{chapter_nr}'
 
     wrapped_lines = []
     for paragraph in the_raw_text.strip().split("\n"):
@@ -43,4 +43,4 @@ def create_pdf(the_raw_text):
     # Lagre PDF
     pdf.save()
 
-create_pdf(chapters.test_chapter)
+# create_pdf(chapters.test_chapter)
