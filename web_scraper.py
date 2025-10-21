@@ -11,7 +11,6 @@ import time
 def scrape_chapter_text(url):
     # session = requests.Session()
     # headers = {
-    # 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'}
     # response = session.get(url, headers=headers)
     browser = start_chrome(url, headless=False)
     wait_until(Text("Consent").exists, timeout_secs=10)

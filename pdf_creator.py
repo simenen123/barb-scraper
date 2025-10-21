@@ -17,30 +17,27 @@ def create_pdf(the_raw_text, chapter_nr):
         wrapped_lines.append("")  # tom linje mellom avsnitt
 
 
-    # Opprett PDF
+
     pdf = canvas.Canvas(fileName)
     pdf.setTitle(documentTitle)
 
-    # Tegn tittel øverst
     pdf.setFont("Helvetica-Bold", 24)
-    pdf.drawCentredString(300, 800, title)  # Y-posisjonen er høyere
+    pdf.drawCentredString(300, 800, title)
 
-    # Tegn linje under tittelen
     pdf.setLineWidth(1)
     pdf.line(30, 790, 570, 790)
 
-    # Plasser tekstinnhold under linjen
-    y = 770  # Start rett under linjen
+    y = 770
     pdf.setFont("Helvetica", 12)
     for line in wrapped_lines:
-        if y < 50:  # Gå til ny side hvis vi er for langt ned
+        if y < 50:
             pdf.showPage()
             y = 800
             pdf.setFont("Helvetica", 12)
         pdf.drawString(50, y, line)
-        y -= 16  # Linjeavstand
+        y -= 16 
 
-    # Lagre PDF
+
     pdf.save()
 
 # create_pdf(chapters.test_chapter)
